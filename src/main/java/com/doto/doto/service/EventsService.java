@@ -1,6 +1,7 @@
 package com.doto.doto.service;
 
 import com.doto.doto.documents.Events;
+import com.doto.doto.dto.documents.EventsDto;
 import com.doto.doto.dto.request.CreateEventsRequest;
 import com.doto.doto.dto.response.CreateEventsResponse;
 import com.doto.doto.mapper.CreateAccountResponseMapper;
@@ -16,10 +17,11 @@ public class EventsService {
 
     private final EventsRepository eventsRepository;
 
-    public CreateEventsResponse createEvents(CreateEventsRequest createEventsRequest){
-        Events events = eventsRepository.save(EventsMapper.toDocumentsFromCreateEventsDto(createEventsRequest));
+    public EventsDto createEvents(CreateEventsRequest createEventsRequest){
 
-        return CreateEventsResponseMapper.toDtoFromEventsDto(EventsMapper.toDto(events));
+        Events events = EventsMapper.toDocumentsFromCreateEventsDto(createEventsRequest);
+
+        return EventsMapper.toDto(eventsRepository.save(events));
     }
 
 }

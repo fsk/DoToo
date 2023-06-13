@@ -1,5 +1,6 @@
 package com.doto.doto.controller;
 
+import com.doto.doto.dto.documents.NotesDto;
 import com.doto.doto.dto.request.CreateNotesRequest;
 import com.doto.doto.dto.response.CreateNotesResponse;
 import com.doto.doto.repositories.NotesRepository;
@@ -21,8 +22,7 @@ public class NotesController {
     private final NotesService notesService;
 
     @PostMapping
-    public ResponseEntity<CreateNotesResponse> createNotes(@RequestBody CreateNotesRequest createNotesRequest){
-        final CreateNotesResponse createNotesResponse = notesService.createNotes(createNotesRequest);
-        return ResponseEntity.created(URI.create(createNotesResponse.getId())).body(createNotesResponse);
+    public ResponseEntity<NotesDto> createNotes(@RequestBody CreateNotesRequest createNotesRequest){
+        return ResponseEntity.ok(notesService.createNotes(createNotesRequest));
     }
 }
