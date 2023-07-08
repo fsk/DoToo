@@ -4,7 +4,9 @@ import com.doto.doto.documents.Events;
 import com.doto.doto.dto.documents.EventsDto;
 import com.doto.doto.dto.request.createrequest.CreateEventsRequest;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class EventsMapper {
 
@@ -48,5 +50,14 @@ public class EventsMapper {
                 .eventCreatedDate(createEventsRequest.getEventCreatedDate())
                 .eventFinishedDate(createEventsRequest.getEventFinishedDate())
                 .build();
+    }
+
+    public static List<EventsDto> toDtoList(List<Events> eventEntityList){
+
+        return eventEntityList
+                .stream()
+                .parallel()
+                .map(EventsMapper::toDto)
+                .toList();
     }
 }
