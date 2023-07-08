@@ -1,4 +1,4 @@
-package com.doto.doto.dto.request;
+package com.doto.doto.dto.request.createrequest;
 
 import lombok.*;
 
@@ -10,17 +10,10 @@ import lombok.*;
 @Builder
 public class CreateAccountRequest {
 
-    private String id;
-
     private String name;
-
     private String surname;
-
     private String userName;
-
     private String email;
-
     private String password;
-
 
 }

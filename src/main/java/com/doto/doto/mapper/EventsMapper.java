@@ -2,7 +2,7 @@ package com.doto.doto.mapper;
 
 import com.doto.doto.documents.Events;
 import com.doto.doto.dto.documents.EventsDto;
-import com.doto.doto.dto.request.CreateEventsRequest;
+import com.doto.doto.dto.request.createrequest.CreateEventsRequest;
 
 import java.util.Objects;
 
@@ -13,7 +13,6 @@ public class EventsMapper {
             return null;
 
         return Events.builder()
-                .id(eventsDto.getId())
                 .eventTitle(eventsDto.getEventTitle())
                 .eventDescription(eventsDto.getEventDescription())
                 .eventCreatedDate(eventsDto.getEventCreatedDate())
@@ -30,7 +29,6 @@ public class EventsMapper {
             return null;
 
         return EventsDto.builder()
-                .id(events.getId())
                 .eventTitle(events.getEventTitle())
                 .eventDescription(events.getEventDescription())
                 .eventCreatedDate(events.getEventCreatedDate())
@@ -45,13 +43,10 @@ public class EventsMapper {
             return null;
 
         return Events.builder()
-                .id(createEventsRequest.getId())
                 .eventTitle(createEventsRequest.getEventTitle())
                 .eventDescription(createEventsRequest.getEventDescription())
                 .eventCreatedDate(createEventsRequest.getEventCreatedDate())
                 .eventFinishedDate(createEventsRequest.getEventFinishedDate())
-                .eventUpdatedFinishedDate(createEventsRequest.getEventUpdatedFinishedDate())
-                .eventFinishedDate(createEventsRequest.getEventUpdatedFinishedDate())
                 .build();
     }
 }
