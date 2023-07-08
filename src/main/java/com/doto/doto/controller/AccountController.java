@@ -1,5 +1,6 @@
 package com.doto.doto.controller;
 
+import com.doto.doto.dto.documents.AccountDto;
 import com.doto.doto.dto.request.CreateAccountRequest;
 import com.doto.doto.dto.response.CreateAccountResponse;
 import com.doto.doto.service.AccountService;
@@ -17,9 +18,10 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<CreateAccountResponse> createAccount(@RequestBody CreateAccountRequest createAccountRequest){
-        final CreateAccountResponse createAccountResponse =accountService.createAccount(createAccountRequest);
-        return ResponseEntity.created(URI.create(createAccountResponse.getId())).body(createAccountResponse);
+    public ResponseEntity<AccountDto> createAccount(@RequestBody CreateAccountRequest createAccountRequest){
+
+        return ResponseEntity.ok(accountService.createAccount(createAccountRequest));
+
     }
 
 

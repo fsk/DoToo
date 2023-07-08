@@ -20,11 +20,14 @@ public class EventsService {
 
     private final EventsRepository eventsRepository;
 
-    public CreateEventsResponse createEvents(CreateEventsRequest createEventsRequest){
-        Events events = eventsRepository
-                .save(Objects.requireNonNull(EventsMapper.toDocumentsFromCreateEventsDto(createEventsRequest)));
 
-        return CreateEventsResponseMapper.toDtoFromEventsDto(EventsMapper.toDto(events));
+    public EventsDto createEvents(CreateEventsRequest createEventsRequest){
+
+    
+
+        Events events = EventsMapper.toDocumentsFromCreateEventsDto(createEventsRequest);
+
+        return EventsMapper.toDto(eventsRepository.save(events));
     }
 
     public List<EventsDto> getAllEvents() {
