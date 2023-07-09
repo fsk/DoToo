@@ -3,6 +3,7 @@ package com.doto.doto.mapper;
 import com.doto.doto.documents.Events;
 import com.doto.doto.dto.documents.EventsDto;
 import com.doto.doto.dto.request.createrequest.CreateEventsRequest;
+import com.doto.doto.utility.InfoMessages;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +29,9 @@ public class EventsMapper {
 
     public static EventsDto toDto(Events events){
         if (Objects.isNull(events))
-            return null;
+            return EventsDto.builder()
+                    .message(InfoMessages.EVENT_NOT_FOUND_MESSAGE.getMessage())
+                    .build();
 
         return EventsDto.builder()
                 .eventTitle(events.getEventTitle())
@@ -60,4 +63,5 @@ public class EventsMapper {
                 .map(EventsMapper::toDto)
                 .toList();
     }
+
 }

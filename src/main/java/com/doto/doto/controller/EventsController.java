@@ -24,10 +24,14 @@ public class EventsController {
 
     }
 
-
-    @GetMapping("/")
+    @GetMapping("/get-all-events")
     public ResponseEntity<List<EventsDto>> getAllEventsResponseResponseEntity() {
         return ResponseEntity.ok(eventsService.getAllEvents());
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<?> getAllEventsResponseEntityFromDay() {
+        return ResponseEntity.ok(eventsService.getAllEventsFromDay());
     }
 
 }
