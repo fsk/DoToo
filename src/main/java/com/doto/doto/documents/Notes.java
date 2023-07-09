@@ -23,6 +23,7 @@ public class Notes implements Serializable {
     private String noteDescription;
     private Date createdDate;
     private Date updatedDate;
-    private boolean isActive;
+    @Builder.Default
+    private boolean isActive = true;
 
 }

@@ -1,5 +1,6 @@
 package com.doto.doto.dto.documents;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.util.Date;
@@ -10,17 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode @ToString
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotesDto {
 
-    private String id;
-
     private String noteTitle;
-
     private String noteDescription;
-
     private Date createdDate;
-
     private Date updatedDate;
 
-    private boolean isActive;
+
 }

@@ -2,7 +2,7 @@ package com.doto.doto.mapper;
 
 import com.doto.doto.documents.Account;
 import com.doto.doto.dto.documents.AccountDto;
-import com.doto.doto.dto.request.CreateAccountRequest;
+import com.doto.doto.dto.request.createrequest.CreateAccountRequest;
 
 import java.util.Objects;
 
@@ -13,12 +13,10 @@ public class AccountMapper {
             return null;
 
         return Account.builder()
-                .id(accountDto.getId())
                 .name(accountDto.getName())
                 .surname(accountDto.getSurname())
                 .userName(accountDto.getUserName())
                 .email(accountDto.getEmail())
-                .password(accountDto.getPasssword())
                 .build();
     }
 
@@ -27,12 +25,10 @@ public class AccountMapper {
             return null;
 
         return AccountDto.builder()
-                .id(account.getId())
                 .name(account.getName())
                 .surname(account.getSurname())
                 .userName(account.getUserName())
                 .email(account.getEmail())
-                .passsword(account.getPassword())
                 .build();
     }
 
@@ -41,7 +37,6 @@ public class AccountMapper {
             return null;
 
         return Account.builder()
-                .id(createAccountRequest.getId())
                 .name(createAccountRequest.getName())
                 .surname(createAccountRequest.getSurname())
                 .userName(createAccountRequest.getUserName())

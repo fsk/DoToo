@@ -2,7 +2,7 @@ package com.doto.doto.controller;
 
 
 import com.doto.doto.dto.documents.EventsDto;
-import com.doto.doto.dto.request.CreateEventsRequest;
+import com.doto.doto.dto.request.createrequest.CreateEventsRequest;
 import com.doto.doto.service.EventsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
