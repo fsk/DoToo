@@ -20,5 +20,10 @@ public class EventsDto {
     private Date eventFinishedDate;
     private Date eventUpdatedCreatedDate;
     private Date eventUpdatedFinishedDate;
+    private String message;
 
+
+    public EventsDto(String message) {
+        this.message = message;
+    }
 }
